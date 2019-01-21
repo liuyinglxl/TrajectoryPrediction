@@ -30,9 +30,12 @@ load_model = 1 if os.listdir(save_model_dir) else 0
 
 def train():
     # load data
-    dataset = Data(FLAGS.batch_size, FLAGS.encoder_size, FLAGS.decoder_size, train_data_path, test_data_path)
-    train_X, train_y, test_X, test_y = dataset.train_inputs, dataset.train_labels, dataset.test_inputs, \
-        dataset.test_labels
+    train_X = np.load("./data/%s/%s_%d_movement_train_X.npy" % (FLAGS.dataset, FLAGS.dataset, FLAGS.decoder_size))
+    train_y = np.load("./data/%s/%s_%d_movement_train_y.npy" % (FLAGS.dataset, FLAGS.dataset, FLAGS.decoder_size))
+
+    test_X = np.load("./data/%s/%s_%d_movement_test_X.npy" % (FLAGS.dataset, FLAGS.dataset, FLAGS.decoder_size))
+    test_y = np.load("./data/%s/%s_%d_movement_test_y.npy" % (FLAGS.dataset, FLAGS.dataset, FLAGS.decoder_size))
+
     
     tolerance_count = 0
     checkpoint_dir = os.path.join(save_model_dir, "%dhidden_%ddecoder_bestmodel.ckpt" % (FLAGS.hidden_dim, FLAGS.decoder_size))
