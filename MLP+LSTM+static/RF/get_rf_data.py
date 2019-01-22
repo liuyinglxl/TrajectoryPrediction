@@ -19,8 +19,8 @@ train_labels = []
 test_inputs = []
 test_labels = []
 
-train_data_path =  "../data/little_train.txt"
-test_data_path =   "../data/little_test.txt"
+train_data_path =  "../../data/sample_train.txt"
+test_data_path =   "../../data/sample_test.txt"
 
 def organise_train_data(group):
     values = group.get([2,3]).values

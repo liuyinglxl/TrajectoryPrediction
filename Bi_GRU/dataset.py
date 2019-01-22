@@ -46,13 +46,13 @@ class Data(object):
         self.test_inputs, self.test_labels = shuffle(self.test_inputs, self.test_labels, random_state=0)
         
     def orignise_train(self, group):
-        values = group.get([2,3,10,11,12,13]).values
+        values = group.get([2,3]).values
         for i in range(0, group.shape[0] - self.input_steps - self.prediction_steps):
             self.train_inputs.append(values[i : i+self.input_steps])
             self.train_labels.append(values[i+self.input_steps : i+self.input_steps+self.prediction_steps, 0:2])
 
     def orignise_test(self, group):
-        values = group.get([2,3,10,11,12,13]).values
+        values = group.get([2,3]).values
         for i in range(0, group.shape[0] - self.input_steps - self.prediction_steps):
             self.test_inputs.append(values[i : i+self.input_steps])
             self.test_labels.append(values[i+self.input_steps : i+self.input_steps+self.prediction_steps, 0:2])

@@ -18,8 +18,8 @@ tf.app.flags.DEFINE_integer("epoches", 500, "training epoches")
 tf.app.flags.DEFINE_string("time_gap", "10s", "time gap")
 tf.app.flags.DEFINE_string("dataset", "geolife", "the city of dataset")
 
-train_data_path =  "./data/little_train.txt"
-test_data_path =  "./data/little_test.txt"
+train_data_path =  "../data/sample_train.txt"
+test_data_path =  "../data/sample_test.txt"
 save_model_dir =  "./model/%s/%d_steps/%d_units/" % (FLAGS.dataset, FLAGS.decoder_size, FLAGS.hidden_dim)
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
